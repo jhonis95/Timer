@@ -21,6 +21,12 @@ class Timer{
         const timeRmaining=parseFloat(this.durationInput.value)//parseFloat is to transfor the string to a number
         this.durationInput.value=timeRmaining-1;
     }
+    getTime(){
+        return parseFloat(this.durationInput.value)
+    }
+    setTime(time){
+        this.durationInput.value=time
+    }
 }
 const durationInput=document.getElementById("duration")
 const startButton=document.getElementById("start")
