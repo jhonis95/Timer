@@ -23,9 +23,6 @@ class Timer{
     pause=()=>{
         clearInterval(this.interval)
     }
-    onDurationChange(){
-
-    }
     tick=()=>{
         if(this.timeRemaining<=0){//make sure that our timeRemaining is not bellow 0
             this.pause();
