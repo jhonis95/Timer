@@ -15,10 +15,10 @@ class Timer{
     }
     start=()=>{// usind arrow function to define the right reference to "this"
         if(this.onStart){
-            this.onStart()
+            this.onStart(this.timeRemaining)
         }        
         this.tick()
-        this.interval=setInterval(this.tick,1000)//the vareable this.interval now can be use cross methods
+        this.interval=setInterval(this.tick,20)//the vareable this.interval now can be use cross methods
     }
     pause=()=>{
         clearInterval(this.interval)
@@ -30,11 +30,11 @@ class Timer{
                 this.onComplete();
             }
         }else{
-            this.timeRemaining=this.timeRemaining - 1;// here we are using get and set
+            this.timeRemaining=this.timeRemaining - 0.02// here we are using get and set
         //set timeRemaining()   get timeRemaining()    
         //get will return the value in float and set will set that value to the input
             if(this.onTick){
-                this.onTick();
+                this.onTick(this.timeRemaining);
             }
         }
     }
@@ -42,6 +42,6 @@ class Timer{
         return parseFloat(this.durationInput.value)//parseFloat is to transfor the string to a number
     }
     set timeRemaining(time){ //setting the variable
-        this.durationInput.value=time
+        this.durationInput.value=time.toFixed(2)
     }
 }
